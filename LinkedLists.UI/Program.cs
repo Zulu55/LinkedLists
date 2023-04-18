@@ -1,7 +1,15 @@
 ﻿using LinkedLists.Logic;
-using System.ComponentModel.Design;
 
 Console.WriteLine("¨*** Linked Lists ***");
+var fruits = new DoubleList<Fruit>();
+fruits.Add(new Fruit { Name = "Naranja", Price = 5000 });
+fruits.Add(new Fruit { Name = "Pera", Price = 4000 });
+fruits.Add(new Fruit { Name = "Kiwy", Price = 6000 });
+fruits.Add(new Fruit { Name = "Aguacate", Price = 4500 });
+fruits.Add(new Fruit { Name = "Limón", Price = 1500 });
+Console.WriteLine(fruits);
+
+/*
 var singleList = new SingleList<string>();
 FillList();
 
@@ -96,5 +104,6 @@ int Menu()
     Console.WriteLine("0. Exit.");
     Console.Write("Enter your choice: ");
     var option = Console.ReadLine();
-    return Convert.ToInt32(option); 
+    return Convert.ToInt32(option);
 }
+*/
