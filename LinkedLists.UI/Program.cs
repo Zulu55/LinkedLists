@@ -1,13 +1,25 @@
 ﻿using LinkedLists.Logic;
 
-Console.WriteLine("¨*** Linked Lists ***");
+Console.WriteLine("*** Linked Lists ***");
 var fruits = new DoubleList<Fruit>();
 fruits.Add(new Fruit { Name = "Naranja", Price = 5000 });
 fruits.Add(new Fruit { Name = "Pera", Price = 4000 });
 fruits.Add(new Fruit { Name = "Kiwy", Price = 6000 });
 fruits.Add(new Fruit { Name = "Aguacate", Price = 4500 });
 fruits.Add(new Fruit { Name = "Limón", Price = 1500 });
+
+Console.WriteLine("List in order =>");
 Console.WriteLine(fruits);
+Console.WriteLine("List in inverted order =>");
+Console.WriteLine(fruits.ToInvertedList());
+
+Console.WriteLine("List converted to array =>");
+var fruitsArray = fruits.ToArray();
+foreach (var fruit in fruitsArray.OrderByDescending(fruit => fruit.Price))
+{
+    Console.WriteLine(fruit);
+}
+
 
 /*
 var singleList = new SingleList<string>();
