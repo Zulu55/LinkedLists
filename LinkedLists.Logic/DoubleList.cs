@@ -151,5 +151,15 @@
             };
 
         }
+
+        /// <summary>
+        /// Fill the linked list with the N first the fibonacci terms
+        /// 0, 1, 1, 2, 3, 5, 8
+        /// </summary>
+        /// <param name="n">Number of fibonacci terms</param>
+        public void FillFibonacci(int n)
+        {
+
+        }
     }
 }

@@ -1,7 +1,12 @@
 ﻿using LinkedLists.Logic;
 
 Console.WriteLine("*** Linked Lists ***");
+var list = new DoubleList<int>();
+list.FillFibonacci(100);
+Console.WriteLine(list);
 
+
+/*
 var orange = new Fruit { Name = "Naranja", Price = 5000 };
 var pear = new Fruit { Name = "Pera", Price = 5000 };
 var kiwy = new Fruit { Name = "Kiwy", Price = 5000 };
@@ -24,7 +29,6 @@ Console.WriteLine($"Response: {response.Message}");
 Console.WriteLine("Fruits List Again =>");
 Console.WriteLine(fruits);
 
-/*
 Console.WriteLine("List in inverted order =>");
 Console.WriteLine(fruits.ToInvertedList());
 
