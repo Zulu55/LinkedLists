@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text.Json.Nodes;
-
-namespace LinkedLists.Logic
+﻿namespace LinkedLists.Logic
 {
     public class DoubleList<T>
     {
@@ -50,11 +47,11 @@ namespace LinkedLists.Logic
             if (IsEmpty)
             {
                 _first = node;
-                _last = node;    
+                _last = node;
             }
             else
             {
-                node.Left= _last;
+                node.Left = _last;
                 _last!.Right = node;
                 _last = node;
             }
@@ -73,6 +70,86 @@ namespace LinkedLists.Logic
                 pointer = pointer.Right;
             }
             return array;
+        }
+
+        public Response Delete(T item)
+        {
+            var pointer = _first;
+            while (pointer != null)
+            {
+                if (item!.Equals(pointer.Data))
+                {
+                    if (pointer == _first)
+                    {
+                        pointer.Right!.Left = null;
+                        _first = pointer.Right;
+                    }
+                    else if (pointer == _last)
+                    {
+                        pointer.Left!.Right = null;
+                        _last = pointer.Left;
+                    }
+                    else
+                    {
+                        pointer.Left!.Right = pointer.Right;
+                        pointer.Right!.Left = pointer.Left;
+                    }
+                    pointer = null;
+                    Count--;
+                    return new Response
+                    {
+                        IsScucced = true,
+                        Message = $"The element: {item} was deleted."
+                    };
+                }
+                pointer = pointer!.Right;
+            }
+            return new Response
+            {
+                IsScucced = false,
+                Message = $"The element: {item} not found."
+            };
+        }
+
+        public Response Insert(T item, int position)
+        {
+            if (position < 0 || position >= Count)
+            {
+                return new Response
+                {
+                    IsScucced = false,
+                    Message = $"The position {position} is not valid."
+                };
+            }
+            var node = new DoubleNode<T>(item);
+            if (position == 0)
+            {
+                _first!.Left = node;
+                node.Right = _first;
+                _first = node;
+            }
+            else
+            {
+                int i = 1;
+                var pointer = _first!.Right;
+                while (i < position)
+                {
+                    pointer = pointer!.Right;
+                    i++;
+                }
+                pointer!.Left!.Right = node;
+                node.Left = pointer.Left;
+                node.Right = pointer;
+                pointer.Left = node;
+            }
+
+            Count++;
+            return new Response
+            {
+                IsScucced = true,
+                Message = $"The item {item} was inserted."
+            };
+
         }
     }
 }

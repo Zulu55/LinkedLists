@@ -1,15 +1,30 @@
 ﻿using LinkedLists.Logic;
 
 Console.WriteLine("*** Linked Lists ***");
-var fruits = new DoubleList<Fruit>();
-fruits.Add(new Fruit { Name = "Naranja", Price = 5000 });
-fruits.Add(new Fruit { Name = "Pera", Price = 4000 });
-fruits.Add(new Fruit { Name = "Kiwy", Price = 6000 });
-fruits.Add(new Fruit { Name = "Aguacate", Price = 4500 });
-fruits.Add(new Fruit { Name = "Limón", Price = 1500 });
 
-Console.WriteLine("List in order =>");
+var orange = new Fruit { Name = "Naranja", Price = 5000 };
+var pear = new Fruit { Name = "Pera", Price = 5000 };
+var kiwy = new Fruit { Name = "Kiwy", Price = 5000 };
+var avocado = new Fruit { Name = "Aguacate", Price = 5000 };
+var lemon = new Fruit { Name = "Limón", Price = 5000 };
+var waterMelon = new Fruit { Name = "Sandia", Price = 5000 };
+
+var fruits = new DoubleList<Fruit>();
+fruits.Add(orange);
+//fruits.Add(pear);
+//fruits.Add(kiwy);
+//fruits.Add(avocado);
+//fruits.Add(lemon);
+
+Console.WriteLine("Fruits List =>");
 Console.WriteLine(fruits);
+var response = fruits.Delete(orange);
+Console.WriteLine($"Response: {response.Message}");
+
+Console.WriteLine("Fruits List Again =>");
+Console.WriteLine(fruits);
+
+/*
 Console.WriteLine("List in inverted order =>");
 Console.WriteLine(fruits.ToInvertedList());
 
@@ -21,7 +36,6 @@ foreach (var fruit in fruitsArray.OrderByDescending(fruit => fruit.Price))
 }
 
 
-/*
 var singleList = new SingleList<string>();
 FillList();
 
